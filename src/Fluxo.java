@@ -4,7 +4,7 @@ public class Fluxo {
         System.out.println("Ini do main");
         try{
             metodo1();
-        }catch (ArithmeticException | NullPointerException ex) {
+        }catch (ArithmeticException | NullPointerException | MinhaExcecao ex) {
             String msg = ex.getMessage();
             System.out.println("Exception " + msg);
             ex.printStackTrace(); //informa por onde passou 
@@ -14,22 +14,24 @@ public class Fluxo {
         metodo3();
     }
 
-    private static void metodo1() {
+    private static void metodo1() throws MinhaExcecao {
         System.out.println("Ini do metodo1");
-            metodo2();
+                metodo2();
         System.out.println("Fim do metodo1");
     }
 
-    private static void metodo2() {
+    private static void metodo2() throws MinhaExcecao {
         System.out.println("Ini do metodo2");
-        for (int i = 1; i <= 5; i++) {
+       
+        throw new MinhaExcecao("deu muito errado");
+        /*for (int i = 1; i <= 5; i++) {
             System.out.println(i);
             int a = i / 0;
             //Conta c = null;
-            //c.deposita();
+            //c.deposita();*/
+        //System.out.println("Fim do metodo2");
         }
-        System.out.println("Fim do metodo2");
-    }
+        
 
     private static void metodo3(){
         System.out.println("Ini metodo3 teste");
