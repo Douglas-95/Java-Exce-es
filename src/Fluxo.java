@@ -4,14 +4,13 @@ public class Fluxo {
         System.out.println("Ini do main");
         try{
             metodo1();
-        }catch (ArithmeticException | NullPointerException | MinhaExcecao ex) {
+        }catch (Exception ex) {
             String msg = ex.getMessage();
             System.out.println("Exception " + msg);
             ex.printStackTrace(); //informa por onde passou 
         }
         
         System.out.println("Fim do main");
-        metodo3();
     }
 
     private static void metodo1() throws MinhaExcecao {
@@ -31,20 +30,4 @@ public class Fluxo {
             //c.deposita();*/
         //System.out.println("Fim do metodo2");
         }
-        
-
-    private static void metodo3(){
-        System.out.println("Ini metodo3 teste");
-                for (int i = 1; i <= 5; i++) {
-            System.out.println(i);
-            //int a = i / 0;
-            Conta c = null;
-            //teste
-            c.deposita();
-        }
-        System.out.println("Fim do metodo3");
-    }
-    
-
-    
 }
